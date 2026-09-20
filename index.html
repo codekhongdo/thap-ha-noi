@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tháp Hà Nội</title>
+    <meta
+      name="description"
+      content="Chơi Tháp Hà Nội trên trình duyệt: kéo đĩa, đếm bước, hẹn giờ và xem máy giải."
+    />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗼</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <header class="top">
+      <div>
+        <p class="eyebrow">Trò chơi cổ điển</p>
+        <h1>Tháp Hà Nội</h1>
+      </div>
+      <p class="lede">
+        Chuyển toàn bộ đĩa sang cột phải. Mỗi lần chỉ được lấy một đĩa, và không
+        được đặt đĩa lớn lên đĩa nhỏ.
+      </p>
+    </header>
+
+    <section class="hud" aria-label="Bảng điều khiển">
+      <label class="field">
+        Số đĩa
+        <select id="disk-count">
+          <option value="3">3</option>
+          <option value="4" selected>4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </label>
+      <div class="stat">
+        <span>Bước</span>
+        <strong id="moves">0</strong>
+      </div>
+      <div class="stat">
+        <span>Tối thiểu</span>
+        <strong id="min-moves">15</strong>
+      </div>
+      <div class="stat">
+        <span>Thời gian</span>
+        <strong id="timer">00:00</strong>
+      </div>
+      <div class="actions">
+        <button type="button" id="btn-reset">Chơi lại</button>
+        <button type="button" id="btn-undo">Hoàn tác</button>
+        <button type="button" class="primary" id="btn-solve">Máy giải</button>
+      </div>
+    </section>
+
+    <main class="board" id="board" aria-label="Ba cột tháp">
+      <div class="peg-wrap" data-peg="0">
+        <button class="peg" type="button" data-peg="0" aria-label="Cột A">
+          <div class="rod"></div>
+          <div class="base"></div>
+          <div class="stack" data-stack="0"></div>
+        </button>
+        <span>A</span>
+      </div>
+      <div class="peg-wrap" data-peg="1">
+        <button class="peg" type="button" data-peg="1" aria-label="Cột B">
+          <div class="rod"></div>
+          <div class="base"></div>
+          <div class="stack" data-stack="1"></div>
+        </button>
+        <span>B</span>
+      </div>
+      <div class="peg-wrap" data-peg="2">
+        <button class="peg" type="button" data-peg="2" aria-label="Cột C">
+          <div class="rod"></div>
+          <div class="base"></div>
+          <div class="stack" data-stack="2"></div>
+        </button>
+        <span>C</span>
+      </div>
+    </main>
+
+    <p class="hint" id="hint">Chọn đĩa trên cùng, rồi chọn cột đích.</p>
+
+    <dialog id="win-dialog">
+      <h2>Hoàn thành!</h2>
+      <p id="win-text"></p>
+      <form method="dialog">
+        <button type="submit" class="primary">Chơi ván mới</button>
+      </form>
+    </dialog>
+
+    <script src="game.js"></script>
+  </body>
+</html>
