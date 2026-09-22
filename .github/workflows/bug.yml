@@ -1,0 +1,30 @@
+name: Kiem Tra Loi Va Gui Mail
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test_and_report:
+    name: Kiểm tra code và Báo cáo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cai dat Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Tải mã nguồn về máy ảo
+        uses: actions/checkout@v4
+      - name: Cài đặt công cụ kiểm tra (HTMLHint)
+        run: |
+         npm install -g htmlhint
+         npm install -g prettier
+      - name: Kiểm tra cú pháp HTML
+        run: htmlhint "**/*.html"
+      - name: Kiểm tra CSS
+        run: prettier --check styles.css
+      - name: kiem tra js
+        run: node --check game.js
+      
