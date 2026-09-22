@@ -192,4 +192,3 @@ els.diskCount.addEventListener("change", (e) => reset(Number(e.target.value)));
 els.dialog.addEventListener("close", () => reset());
 
 reset(4);
-const workflowTest = ;
