@@ -37,7 +37,11 @@ body {
   inset: auto -120px -180px auto;
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, rgba(79, 209, 197, 0.18), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(79, 209, 197, 0.18),
+    transparent 70%
+  );
   pointer-events: none;
 }
 
